@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QClipboard, QGuiApplication
 from src import Encoder
+from src import Decoder
 
 from src import Ui_MainWindow
 
@@ -14,6 +15,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.encoder_button.clicked.connect(self.open_encode_frame)
         self.encode_input_button.clicked.connect(self.encode_message)
         self.copy_encoded_message_button.clicked.connect(self.copy_encoded_message)
+        self.decoder_button.clicked.connect(self.decode_morse_code)
 
     def open_encode_frame(self):
         self.morse_buttons_frame.hide()
@@ -30,3 +32,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         clipboard = QGuiApplication.clipboard()
         clipboard.setText(self.encoded_message.text())
         self.status_bar.showMessage("Copied to clipboard", 5000)
+
+    def decode_morse_code(self):
+        morse_sequence = "- .... . / .-.. --- ...- . / -.-. .... .- .-. ... / -- --- .-. -. .. -. --. / .- -. -.. / --- ..-. / - .... . / .-.. --- ...- . /"
+        morse_sequence = "- .... . / .-.. --- ...- . / -.-. .... .- .-. ... / -- --- .-. -. .. -. --. / .- -. -.. / --- ..-. / - .... . / .-.. --- ...- ."
+        decoder = Decoder()
+        test = decoder.morse_to_chars(morse_sequence)
+        print(test)

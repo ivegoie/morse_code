@@ -54,7 +54,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-import resources_rc
+import resources_rc as resources_rc
 
 
 class Ui_MainWindow(object):
