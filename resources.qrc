@@ -1,0 +1,5 @@
+<RCC>
+  <qresource>
+    <file>src/main_window/images/copyIcon.png</file>
+  </qresource>
+</RCC>
