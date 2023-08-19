@@ -1,3 +1,6 @@
+import pyttsx3
+
+
 class Decoder:
     def __init__(self):
         self.MORSE_DICT = {
@@ -58,13 +61,16 @@ class Decoder:
             "/": " ",
         }
 
-    def morse_to_chars(self, morse):
-        words = morse.split(" / ")
-        result = []
+    def morse_to_chars(self, message):
+        words = message.split(" / ")
+        plain_message = []
         for word in words:
             chars = word.split(" ")
             for char in chars:
-                result.append(self.MORSE_DICT.get(char, ""))
-            result.append(" ")
+                plain_message.append(self.MORSE_DICT.get(char, ""))
+            plain_message.append(" ")
 
-        return "".join(result)
+        self.text_message = "".join(plain_message)
+        print(self.text_message)
+
+        return self.text_message.lower().capitalize()

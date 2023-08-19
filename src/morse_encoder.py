@@ -70,7 +70,7 @@ class Encoder:
     def play_morse_code(self, message):
         self.morse_message = " ".join(self.MORSE_DICT[char] for char in message.upper())
 
-        for char in self.morse_message:  # Loop through the Morse code representation
+        for char in self.morse_message:
             if char == ".":
                 playsound(self.short_path)
             elif char == "-":
